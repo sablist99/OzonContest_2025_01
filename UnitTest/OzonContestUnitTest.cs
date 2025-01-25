@@ -60,5 +60,16 @@ namespace UnitTest
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [MemberData(nameof(TestData.GetFourthTaskTestData), MemberType = typeof(TestData))]
+        public void FourthTaskUnitTest(FourthTask.Program.Folder folder, string expected)
+        {
+            // Act
+            string result = FourthTask.Program.FindInfectedFiles(folder).ToString();
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
