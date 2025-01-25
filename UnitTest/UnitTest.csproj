@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FifthTask\FifthTask.csproj" />
     <ProjectReference Include="..\FirstTask\FirstTask.csproj" />
     <ProjectReference Include="..\FourthTask\FourthTask.csproj" />
     <ProjectReference Include="..\SecondTask\SecondTask.csproj" />

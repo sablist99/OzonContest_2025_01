@@ -1,8 +1,8 @@
 ﻿using static FourthTask.Program;
 
-namespace UnitTest
+namespace UnitTest.TestData
 {
-    public static class TestData
+    public static partial class TestData
     {
         public static IEnumerable<object[]> GetFourthTaskTestData()
         {
@@ -36,7 +36,7 @@ namespace UnitTest
                         }
                     ]
                 },
-                "7" // Ожидаемый результат: количество заражённых файлов
+                "7"
             };
 
             yield return new object[]
@@ -69,7 +69,7 @@ namespace UnitTest
                         }
                     ]
                 },
-                "3" // Ожидаемый результат: количество заражённых файлов
+                "3"
             };
 
             yield return new object[]
@@ -80,10 +80,8 @@ namespace UnitTest
                     Files = [],
                     Folders = []
                 },
-                "0" // Ожидаемый результат: заражённых файлов нет
+                "0"
             };
-
-            // Добавляйте другие случаи
         }
     }
 }

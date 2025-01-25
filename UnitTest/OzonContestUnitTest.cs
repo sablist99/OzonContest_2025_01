@@ -62,11 +62,22 @@ namespace UnitTest
         }
 
         [Theory]
-        [MemberData(nameof(TestData.GetFourthTaskTestData), MemberType = typeof(TestData))]
+        [MemberData(nameof(TestData.TestData.GetFourthTaskTestData), MemberType = typeof(TestData.TestData))]
         public void FourthTaskUnitTest(FourthTask.Program.Folder folder, string expected)
         {
             // Act
             string result = FourthTask.Program.FindInfectedFiles(folder).ToString();
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [MemberData(nameof(TestData.TestData.GetFifthTaskTestData), MemberType = typeof(TestData.TestData))]
+        public void FifthTaskUnitTest(FifthTask.Program.TestCase testCase, string expected)
+        {
+            // Act
+            string result = string.Join(" ", FifthTask.Program.FillTrucks(testCase));
 
             // Assert
             Assert.Equal(expected, result);
