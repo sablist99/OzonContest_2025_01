@@ -21,32 +21,28 @@
 
         public static string CalculateSalary(string inputString)
         {
-            string[] salaryString = inputString.Select(c => c.ToString()).ToArray();
-
-            int leftDigit = int.Parse(salaryString[0].ToString());
-
-            int? targetIndex = null;
-            for (int i = 1; i < salaryString.Length; i++)
+            if (inputString.Length == 1)
             {
-                int rightDigit = int.Parse(salaryString[i].ToString());
+                return "0";
+            }
 
+            // По умолчанию удаляем последнюю цифру
+            // Если индекс не был найден, значит цифры все время уменьшались или были равны
+            int targetIndex = inputString.Length - 1;
+
+            for (int i = 1; i < inputString.Length; i++)
+            {
                 // Ищем первый минимальный экстремум
                 // Запоминаем индекс первой цифры, после которой идет бОльшая цифра
-                if (leftDigit < rightDigit)
+                if (inputString[i - 1] < inputString[i])
                 {
                     targetIndex = i - 1;
                     break;
                 }
-                leftDigit = rightDigit;
             }
 
-            // Если индекс не был найден, значит цифры все время уменьшались или были равны. Можно удалять последнюю
-            targetIndex ??= salaryString.Length - 1;
-
             // Формируем итоговую зарплату
-            string result = salaryString.Length == 1
-                ? "0"
-                : string.Concat(salaryString.Where((_, i) => i != targetIndex));
+            string result = string.Concat(inputString.Where((_, i) => i != targetIndex));
 
             return result;
         }
