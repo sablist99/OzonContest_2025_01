@@ -23,8 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FirstTask\FirstTask.csproj" />
     <ProjectReference Include="..\OzonContest\FirstTask.csproj" />
     <ProjectReference Include="..\SecondTask\SecondTask.csproj" />
+    <ProjectReference Include="..\ThirdTask\ThirdTask.csproj" />
   </ItemGroup>
 
   <ItemGroup>
