@@ -82,5 +82,16 @@ namespace UnitTest
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [MemberData(nameof(TestData.TestData.Get_Task_3_260125_TestData), MemberType = typeof(TestData.TestData))]
+        public void Task_3_260125_UnitTest(List<string> names, List<string> prices, string outputString, string expected)
+        {
+            // Act
+            string result = Task_3_260125.Program.CheckString(names, prices, outputString);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
